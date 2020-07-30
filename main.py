@@ -4,9 +4,12 @@ import sys
 def main():
     for i, old_filepath in enumerate(sys.argv):
         if i != 0:
+
             print('old_filepath =', old_filepath)
             directory = old_filepath[: old_filepath.rfind('\\')+1]
             filename = old_filepath[len(directory): ]
+            if not '_' in filename:
+                break
             print('filename =', filename)
             first = filename[: filename.find('_')]
             second = filename[len(first)+1: ]
