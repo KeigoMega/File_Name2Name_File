@@ -29,10 +29,12 @@ def main():
                 third = third[: third.find('.')]
             else:
                 third = ''
-                last = second[second.find('.'): ]
-                second = second[: second.find('.')]
+                last = ''
+                if second.find('.') != -1:
+                    last = second[second.find('.'): ]
+                    second = second[: second.find('.')]
             new_filepath = directory + second + kugiri + first + third + last
-            print(first, second, third, last)
+            print(f'{first}-{second}-{third}-{last}')
             print('new_filepath =', new_filepath)
             os.rename(src=old_filepath, dst=new_filepath)
 
